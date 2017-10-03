@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import ChatMessage from "./ChatMessage";
 import ChatMessageModel from "../models/ChatMessageModel";
 import InputChatMessageContainer from "./InputChatMessageContainer";
+import DateUtils from "../utils/DateUtils";
 
 const styles = StyleSheet.create({
     container: {

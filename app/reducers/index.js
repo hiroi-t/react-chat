@@ -7,7 +7,7 @@ import ChatMessageModel from "../models/ChatMessageModel";
 
 // Start with two routes: The Main screen, with the Login screen on top.
 
-const newAction = AppNavigator.router.getActionForPathAndParams('Admin');
+const newAction = AppNavigator.router.getActionForPathAndParams('Login');
 const initialNavState = AppNavigator.router.getStateForAction(
     newAction
 );
@@ -77,9 +77,10 @@ const initialUser = {name: "pika", imageUrl: "https://i.ytimg.com/vi/-KbsWrwnQGE
 function user(state = initialUser, action){
     switch (action.type) {
         case 'LOGIN_SUCCEED':
-            return {...state, name: action.payload.name, imageUrl: action.payload.imageUrl};
+            return {...state, name: action.payload[0].name, imageUrl: action.payload[0].imageUrl};
+        default:
+            return state;
     }
-    return state;
 }
 
 const initMessage = new ChatMessageModel(
